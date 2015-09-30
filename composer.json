@@ -15,6 +15,10 @@
 	"zf2 module"
   ],
   "version" : "0.1.0",
+  "homepage" : "https://github.com/sedpro/cachedecorator",
+  "license" : [
+	"BSD-3-Clause"
+  ],
   "require" : {
 	"php" : ">=5.4",
 	"zendframework/zendframework" : ">=2.0"
@@ -27,6 +31,11 @@
 	  "./Module.php"
 	]
   },
+  "repositories" : [{
+	"name" : "cachedecorator",
+	"type" : "git",
+	"url" : "git@github.com:sedpro/cachedecorator.git"
+  }],
   "support" : {
 	"email" : "sedpro@ya.ru"
   }
