@@ -55,3 +55,14 @@ Configuration:
 '\Cachedecorator\Module::CACHE' is cache storage adapter, used to store the output of your services.
   
 '\Cachedecorator\Module::CACHED' is list of services you want to cache. Cached will be only enlisted functions. 
+
+Example
+=====================================
+If you use the configuration, showed above, method getItems of class Application\Service\Example will be cached. You can use it as usual: 
+
+  ```php
+    $exampleService = $this->getServiceLocator()->get('Application\Service\Example');
+    $items = $exampleService->getItems(); // cached
+    $values = $exampleService->getValues(); // not cached
+  ```
+
