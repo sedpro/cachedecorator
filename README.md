@@ -26,7 +26,7 @@ Configuration:
 - In your `config/autoload/global.php` file add two values:
 
   ```php
-      'caches' => [
+    'caches' => [
         \Cachedecorator\Module::CACHE => [
             'adapter' => [
                 'name' => 'memcached',
@@ -50,6 +50,8 @@ Configuration:
     ],
     ```
   
-  'caches' contains all caches you use in project. They will be instantiate in abstact factory `Zend\Cache\Service\StorageCacheAbstractServiceFactory` which is called in `vendor/sedpro/cachedecorator/config/module.config.php`. If you are already using this factory, there will be no conflict. 
-  '\Cachedecorator\Module::CACHE' is cache storage adapter, used to store the output of your services.
-  '\Cachedecorator\Module::CACHED' is list of services you want to cache. Cached will be only enlisted functions. 
+'caches' contains all caches you use in project. They will be instantiate in abstact factory `Zend\Cache\Service\StorageCacheAbstractServiceFactory` which is called in `vendor/sedpro/cachedecorator/config/module.config.php`. If you are already using this factory, there will be no conflict. 
+
+'\Cachedecorator\Module::CACHE' is cache storage adapter, used to store the output of your services.
+  
+'\Cachedecorator\Module::CACHED' is list of services you want to cache. Cached will be only enlisted functions. 
