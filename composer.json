@@ -1,0 +1,33 @@
+{
+  "name" : "sedpro/cachedecorator",
+  "description" : "Simple cache decorator module for zf2 projects",
+  "type" : "zf2-module",
+  "authors" : [
+	{
+	  "name" : "Prokhor sednev",
+	  "email" : "sedpro@ya.ru",
+	  "role" : "Developer"
+	}
+  ],
+  "keywords" : [
+	"cache",
+	"cache decorator",
+	"zf2 module"
+  ],
+  "version" : "0.1.0",
+  "require" : {
+	"php" : ">=5.4",
+	"zendframework/zendframework" : ">=2.*"
+  },
+  "autoload" : {
+	"psr-0" : {
+	  "Cachedecorator" : "src"
+	},
+	"classmap" : [
+	  "./Module.php"
+	]
+  },
+  "support" : {
+	"email" : "sedpro@ya.ru"
+  }
+}
