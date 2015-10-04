@@ -8,17 +8,15 @@ use Zend\ServiceManager\ServiceLocatorInterface;
 
 class AbstractFactory implements AbstractFactoryInterface
 {
-    /**
-     * @var array
-     */
+    /** @var array */
     protected $config;
 
     /**
      * Can we create a service by the requested name?
      *
-     * @param  ServiceLocatorInterface $serviceLocator
-     * @param  string $name
-     * @param  string $requestedName
+     * @param ServiceLocatorInterface $serviceLocator
+     * @param string $name
+     * @param string $requestedName
      * @return bool
      */
     public function canCreateServiceWithName(ServiceLocatorInterface $serviceLocator, $name, $requestedName)
@@ -28,6 +26,13 @@ class AbstractFactory implements AbstractFactoryInterface
         return (isset($config[$requestedName]) && class_exists($requestedName));
     }
 
+    /**
+     * get array of methods to cache for given service
+     *
+     * @param ServiceLocatorInterface $services
+     * @return array
+     * @throws \Exception No config entry found
+     */
     protected function getConfig(ServiceLocatorInterface $services)
     {
         if ($this->config !== null) {
@@ -45,7 +50,7 @@ class AbstractFactory implements AbstractFactoryInterface
         return $this->config;
     }
 
-        /**
+    /**
      * Create a service
      *
      * @param  ServiceLocatorInterface $serviceLocator
@@ -62,9 +67,10 @@ class AbstractFactory implements AbstractFactoryInterface
         }
 
         $config = $this->getConfig($serviceLocator);
+        $cacheStorage = $serviceLocator->get(\Cachedecorator\Module::CACHE);
 
         $decorator = new Decorator;
-        $decorator->setCacheStorage($serviceLocator->get(\Cachedecorator\Module::CACHE));
+        $decorator->setCacheStorage($cacheStorage);
         $decorator->setService($service);
         $decorator->setAllowedMethods($config[$requestedName]);
 
