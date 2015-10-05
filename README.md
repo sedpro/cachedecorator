@@ -54,7 +54,7 @@ Configuration:
 
 '\Cachedecorator\Module::CACHE' is cache storage adapter, used to store the output of your services.
   
-'\Cachedecorator\Module::CACHED' is list of services you want to cache. Cached will be only enlisted functions. 
+'\Cachedecorator\Module::CACHED' is list of services you want to cache. Cached will be only listed functions. 
 
 Example
 =====================================
