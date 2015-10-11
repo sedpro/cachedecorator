@@ -8,7 +8,7 @@ class Decorator
     protected $service;
 
     /** @var array This methods will be cached */
-    protected $allowedMethods;
+    protected $allowedMethods = [];
 
     /** @var string Name of the class */
     protected $serviceName;

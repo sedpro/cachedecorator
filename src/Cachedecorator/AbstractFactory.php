@@ -41,11 +41,11 @@ class AbstractFactory implements AbstractFactoryInterface
 
         $config = $services->get('Config');
 
-        if (!isset($config[\Cachedecorator\Module::CACHED])) {
+        if (!isset($config[\Cachedecorator\Module::METHODS])) {
             throw new \Exception('config not configured for cache decorator');
         }
 
-        $this->config = $config[\Cachedecorator\Module::CACHED];
+        $this->config = $config[\Cachedecorator\Module::METHODS];
 
         return $this->config;
     }
@@ -67,12 +67,12 @@ class AbstractFactory implements AbstractFactoryInterface
         }
 
         $config = $this->getConfig($serviceLocator);
-        $cacheStorage = $serviceLocator->get(\Cachedecorator\Module::CACHE);
+        $cacheStorage = $serviceLocator->get(\Cachedecorator\Module::STORAGE);
 
-        $decorator = new Decorator;
-        $decorator->setCacheStorage($cacheStorage);
-        $decorator->setService($service);
-        $decorator->setAllowedMethods($config[$requestedName]);
+        $decorator = $serviceLocator->get(\Cachedecorator\Module::DECORATOR_CLASS)
+            ->setCacheStorage($cacheStorage)
+            ->setService($service)
+            ->setAllowedMethods($config[$requestedName]);
 
         return $decorator;
     }

@@ -13,9 +13,13 @@ use Zend\ModuleManager\Feature\AutoloaderProviderInterface;
 
 class Module implements AutoloaderProviderInterface
 {
-    const CACHE = 'decorator_cache';
+    /** storage adapter */
+    const STORAGE = 'decorator_storage';
 
-    const CACHED = 'decorator_cached';
+    /** cached methods */
+    const METHODS = 'decorator_methods';
+
+    const DECORATOR_CLASS = \Cachedecorator\Decorator::class;
 
     public function getAutoloaderConfig()
     {

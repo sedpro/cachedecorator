@@ -10,7 +10,6 @@
     <testsuites>
         <testsuite name="cachedecorator">
             <directory>./tests/</directory>
-
         </testsuite>
     </testsuites>
 
@@ -20,7 +19,7 @@
 
     <filter>
         <whitelist processUncoveredFilesFromWhitelist="true">
-            <directory suffix=".php">./tests/</directory>
+            <directory suffix=".php">./src/Cachedecorator/</directory>
         </whitelist>
     </filter>
 

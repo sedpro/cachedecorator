@@ -27,7 +27,7 @@ Configuration:
 
   ```php
     'caches' => [
-        \Cachedecorator\Module::CACHE => [
+        \Cachedecorator\Module::STORAGE => [
             'adapter' => [
                 'name' => 'memcached',
             ],
@@ -43,7 +43,7 @@ Configuration:
             ],
         ],
     ],
-    \Cachedecorator\Module::CACHED => [
+    \Cachedecorator\Module::METHODS => [
         'Application\Service\Example' => [
             'getItems',
         ],
@@ -52,9 +52,9 @@ Configuration:
   
 'caches' contains all caches you use in project. They will be instantiate in abstact factory `Zend\Cache\Service\StorageCacheAbstractServiceFactory` which is called in `vendor/sedpro/cachedecorator/config/module.config.php`. If you are already using this factory, there will be no conflict. 
 
-'\Cachedecorator\Module::CACHE' is cache storage adapter, used to store the output of your services.
+'\Cachedecorator\Module::STORAGE' is cache storage adapter, used to store the output of your services.
   
-'\Cachedecorator\Module::CACHED' is list of services you want to cache. Cached will be only listed functions. 
+'\Cachedecorator\Module::METHODS' is list of services you want to cache. Cached will be only listed functions. 
 
 Example
 =====================================
