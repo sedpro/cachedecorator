@@ -4,6 +4,8 @@ Version 0.1
 
 This module allows you simple caching of your service methods.
 
+The main idea was to create a caching module, which can be connected to a project without changing code. All you need to do is ajust your config.
+
 Installation
 ------------
 For the installation uses composer [composer](http://getcomposer.org "composer - package manager").
