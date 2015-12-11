@@ -34,7 +34,7 @@ class DecoratorTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($firstResult, $resultData);
 
         // after first call data is in cache
-        $key = get_class($service) . '.' . $this->testedMethod . '.' . md5(serialize([$inputData]));
+        $key = get_class($service) . '.' . $this->testedMethod . '.' . md5(json_encode([$inputData]));
         $resultInCache = $this->storage->getItem($key);
         $this->assertEquals($resultInCache, $resultData);
 
@@ -94,7 +94,7 @@ class DecoratorTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($firstResult, $resultData);
 
         // after first call data is in cache
-        $key = get_class($service) . '.' . $this->testedMethod . '.' . md5(serialize([$inputData]));
+        $key = get_class($service) . '.' . $this->testedMethod . '.' . md5(json_encode([$inputData]));
         $resultInCache = $this->storage->getItem($key);
         $this->assertEquals($resultInCache, $resultData);
 
