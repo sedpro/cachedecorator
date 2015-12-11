@@ -66,7 +66,7 @@ class Decorator
         $useCache = in_array($method, $this->allowedMethods);
 
         if ($useCache) {
-            $key = $this->serviceName . '.' . $method . '.' . md5(serialize($args));
+            $key = $this->serviceName . '.' . $method . '.' . md5(json_encode($args));
 
             $success = null;
             $data = $this->cacheStorage->getItem($key, $success);
